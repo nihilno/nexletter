@@ -16,10 +16,10 @@ function Navbar() {
   if (!user) return null;
 
   return (
-    <header>
-      <nav>
+    <header className="bg-foreground">
+      <nav className="flex items-center justify-between p-4">
         <Button onClick={handleSignOut}>Logout</Button>{" "}
-        <div className="text-white">{user?.email}</div>
+        <div className="text-background">{user?.email}</div>
       </nav>
     </header>
   );

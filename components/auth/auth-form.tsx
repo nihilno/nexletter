@@ -87,8 +87,6 @@ export function AuthForm() {
           description: "Redirecting to your dashboard...",
         });
 
-        form.reset();
-
         replace("/dashboard");
       }
     } catch (error) {
