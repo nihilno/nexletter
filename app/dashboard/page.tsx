@@ -6,7 +6,10 @@ export default function DashboardPage() {
   return (
     <section className="py-8">
       <div className="px-4">
-        <Title />
+        <Title subtitle="Manage your personalized newsletter preferences.">
+          Your <span className="text-primary">Newsletter</span>
+          <br /> Dashboard
+        </Title>
         <Cards />
       </div>
       <Explanation />

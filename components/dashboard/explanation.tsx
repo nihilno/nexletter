@@ -1,4 +1,4 @@
-import { Folders, Mail, Pause, Settings } from "lucide-react";
+import { listItems } from "@/lib/consts";
 import Image from "next/image";
 
 function Explanation() {
@@ -9,30 +9,15 @@ function Explanation() {
       </h3>
       <div className="relative">
         <ul className="space-y-8 text-center text-sm md:text-base">
-          <li className="bg-card/50 flex flex-col items-center gap-3 px-2.5 py-8 backdrop-blur-2xl">
-            <Folders className="text-primary size-7 md:size-9" />
-            <span>
-              Your newsletter is automatically generated based on your selected
-              categories.
-            </span>
-          </li>
-          <li className="bg-card/50 flex flex-col items-center gap-3 px-2.5 py-8 backdrop-blur-2xl">
-            <Mail className="text-primary size-7 md:size-9" />
-            <span>
-              Newsletters are delivered to your email at 9 AM according to
-              chosen. frequency
-            </span>
-          </li>
-          <li className="bg-card/50 flex flex-col items-center gap-3 px-2.5 py-8 backdrop-blur-2xl">
-            <Pause className="text-primary size-7 md:size-9" />
-            <span>You can pause or resume your newsletter at any time.</span>
-          </li>
-          <li className="bg-card flex flex-col items-center gap-3 px-2.5 py-8">
-            <Settings className="text-primary size-7 md:size-9" />
-            <span>
-              Update your preferenced anytime to change categories or frequency.
-            </span>
-          </li>
+          {listItems.map(({ id, content, icon }) => (
+            <li
+              key={id}
+              className="bg-card/50 flex flex-col items-center gap-3 px-2.5 py-8 backdrop-blur-2xl"
+            >
+              {icon}
+              <span>{content}</span>
+            </li>
+          ))}
         </ul>
 
         <Image

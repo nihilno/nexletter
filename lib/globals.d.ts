@@ -7,4 +7,9 @@ declare global {
     isLoading: boolean;
     signOut: () => Promise<void>;
   };
+
+  type TitleProps = {
+    children: React.ReactNode;
+    subtitle: string;
+  };
 }

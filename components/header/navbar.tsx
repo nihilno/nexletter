@@ -21,7 +21,6 @@ function Navbar() {
         <Button onClick={handleSignOut} size={"sm"}>
           Logout
         </Button>{" "}
-        <div className="text-background">{user?.email}</div>
       </nav>
     </header>
   );
