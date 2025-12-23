@@ -35,7 +35,7 @@ function Navbar() {
         <Button
           onClick={handleSignOut}
           size={"sm"}
-          className="ransition-all ml-auto duration-200 ease-in-out hover:translate-y-0.5"
+          className="ml-auto transition-all duration-200 ease-in-out hover:translate-y-0.5"
         >
           Logout
         </Button>

@@ -74,7 +74,7 @@ export const frequencyOptions = [
   },
   {
     id: "biweekly",
-    name: "Bi-weekly",
+    name: "Semi-weekly",
     description: "Twice a week.",
   },
 ];

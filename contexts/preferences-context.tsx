@@ -10,12 +10,11 @@ function PreferencesProvider({ children }: { children: React.ReactNode }) {
   const [selectedCategory, setSelectedCategory] = useState<string[]>([]);
   const [selectedFrequency, setSelectedFrequency] = useState<string>("weekly");
 
-  async function handleCategoryChange(id: string) {
+  function handleCategoryChange(id: string) {
     setSelectedCategory((prev: string[]) =>
-      prev.includes(id) ? prev.filter((prev) => prev !== id) : [...prev, id],
+      prev.includes(id) ? prev.filter((item) => item !== id) : [...prev, id],
     );
   }
-
   return (
     <PreferencesContext.Provider
       value={{

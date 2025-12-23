@@ -13,7 +13,7 @@ declare global {
     setSelectedCategory: Dispatch<SetStateAction<string[]>>;
     selectedFrequency: string;
     setSelectedFrequency: Dispatch<SetStateAction<string>>;
-    handleCategoryChange: (id: string) => Promise<void>;
+    handleCategoryChange: (id: string) => void;
   };
 
   type TitleProps = {
