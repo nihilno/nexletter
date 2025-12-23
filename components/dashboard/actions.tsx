@@ -14,7 +14,7 @@ function Actions() {
       <CardHeader className="border-b border-dashed text-center text-xl font-bold sm:text-2xl">
         <CardTitle>Actions</CardTitle>
       </CardHeader>
-      <CardContent className="mt-2 space-y-6 px-3 lg:px-5">
+      <CardContent className="mt-2 space-y-6">
         <Button
           className="flex h-12 w-full items-center gap-2"
           onClick={() => push("/preferences")}

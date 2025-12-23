@@ -5,18 +5,19 @@ import { Calendar, CheckCircle, Grid2X2, Send, Timer } from "lucide-react";
 
 function Preferences() {
   const isActive = true;
+
   return (
     <Card className="rounded-b-none border-b-0">
       <CardHeader className="border-b border-dashed text-center text-xl font-bold sm:text-2xl">
         <CardTitle>Current Preferences</CardTitle>
       </CardHeader>
-      <CardContent className="mt-2 space-y-6 px-3 lg:px-5">
+      <CardContent className="mt-2 space-y-6">
         <div className="space-y-4">
           <div className="flex items-center gap-2">
             <Grid2X2 className="size-4.5" />
             <h3 className="font-semibold">Categories</h3>
           </div>
-          <div className="flex items-center gap-3 rounded-full">
+          <div className="flex items-center gap-3 rounded-full capitalize">
             <Badge>technology</Badge>
             <Badge>sports</Badge>
             <Badge>politics</Badge>
@@ -43,7 +44,11 @@ function Preferences() {
             <CheckCircle className="size-4.5" />
             <h3 className="font-semibold">Status</h3>
           </div>
-          <Badge className={cn(isActive ? "bg-green-800" : "bg-destructive")}>
+          <Badge
+            className={cn(
+              isActive ? "animate-pulse bg-green-800" : "bg-destructive",
+            )}
+          >
             {isActive ? "Active" : "Inactive"}
           </Badge>
         </div>

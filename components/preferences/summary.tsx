@@ -11,9 +11,15 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { usePreferences } from "@/contexts/preferences-context";
-import { Activity, AlertCircle, CheckCircle, Shapes } from "lucide-react";
+import {
+  Activity,
+  AlertCircle,
+  CheckCircle,
+  Loader2Icon,
+  Shapes,
+} from "lucide-react";
 
-function Summary() {
+function Summary({ isLoading }: { isLoading: boolean }) {
   const { selectedCategory, selectedFrequency } = usePreferences();
   const hasCategories = selectedCategory.length > 0;
 
@@ -55,17 +61,24 @@ function Summary() {
       </CardContent>
       <CardFooter className="mt-8">
         <Button
-          disabled={!hasCategories}
+          disabled={!hasCategories || isLoading}
           type="submit"
           className="h-12 w-full items-center gap-2"
         >
-          {hasCategories ? (
-            <CheckCircle className="size-5" />
-          ) : (
+          {isLoading ? (
+            <Loader2Icon className="size-5 animate-spin" />
+          ) : !hasCategories ? (
             <AlertCircle className="size-5" />
+          ) : (
+            <CheckCircle className="size-5" />
           )}
+
           <span>
-            {hasCategories ? "Save Preferences" : "Specify Categories First"}
+            {isLoading
+              ? "Saving Preferences..."
+              : !hasCategories
+                ? "Specify Categories First"
+                : "Save Preferences"}
           </span>
         </Button>
       </CardFooter>

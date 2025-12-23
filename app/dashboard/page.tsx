@@ -4,7 +4,7 @@ import Title from "@/components/dashboard/title";
 
 export default function DashboardPage() {
   return (
-    <section className="py-8">
+    <section className="scroll-mt-24 py-8">
       <div className="px-4">
         <Title subtitle="Manage your personalized newsletter preferences.">
           Your <span className="text-primary">Newsletter</span>

@@ -24,7 +24,7 @@ function FrequencyCard() {
         </CardDescription>
       </CardHeader>
 
-      <CardContent className="mt-2 space-y-6 px-3 md:flex md:h-full md:flex-col md:justify-center lg:px-5">
+      <CardContent className="mt-2 space-y-6 md:flex md:h-full md:flex-col md:justify-center">
         {frequencyOptions.map(({ id, name, description }) => (
           <div key={id}>
             <Input

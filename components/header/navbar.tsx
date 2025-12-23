@@ -20,8 +20,8 @@ function Navbar() {
   if (!user) return null;
 
   return (
-    <header className="border-primary border-b border-dashed">
-      <nav className="flex h-22.5 items-center justify-center gap-4 px-4">
+    <header className="border-primary bg-background/50 sticky top-0 z-50 border-b border-dashed px-4 backdrop-blur-3xl">
+      <nav className="mx-auto flex h-22.5 max-w-5xl items-center justify-center gap-4">
         {navLinks.map(({ href, icon }) => (
           <Link
             key={href}

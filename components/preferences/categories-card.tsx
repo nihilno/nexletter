@@ -24,7 +24,7 @@ function CategoriesCard() {
           newsletter.
         </CardDescription>
       </CardHeader>
-      <CardContent className="mt-2 space-y-6 px-3 lg:px-5">
+      <CardContent className="mt-2 space-y-6">
         {categoriesChecks.map(({ id, name, description }) => (
           <div key={id}>
             <Input
