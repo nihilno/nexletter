@@ -17,10 +17,15 @@ function Actions() {
       <CardContent className="mt-2 space-y-6">
         <Button
           className="flex h-12 w-full items-center gap-2"
+          variant={"outline"}
           onClick={() => push("/preferences")}
         >
           <Sliders className="size-5" />
           <span>Update Preferences</span>
+        </Button>
+        <Button className="h-12 w-full items-center gap-2" variant={"outline"}>
+          <UserCog className="size-5" />
+          <span>Manage Subscription</span>
         </Button>
         <Button
           className="flex h-12 w-full items-center gap-2"
@@ -32,10 +37,6 @@ function Actions() {
             <Play className="size-5" />
           )}
           <span>{isActive ? "Pause Newsletter" : "Resume Newsletter"}</span>
-        </Button>
-        <Button className="h-12 w-full items-center gap-2" variant={"outline"}>
-          <UserCog className="size-5" />
-          <span>Manage Subscription</span>
         </Button>
       </CardContent>
     </Card>
