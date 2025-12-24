@@ -114,9 +114,9 @@ export function AuthForm() {
                     <LogIn className="size-8" />
                   )}
                 </div>
-                <span className="sr-only">AI Saas.</span>
+                <span className="sr-only">Nexletter.</span>
               </Link>
-              <h2 className="text-xl font-bold">Welcome to AI Saas.</h2>
+              <h2 className="text-xl font-bold">Welcome to Nexletter.</h2>
               <FieldDescription>
                 {isSignUp
                   ? "Already have an account?"

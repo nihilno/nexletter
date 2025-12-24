@@ -49,7 +49,7 @@ export async function POST(request: NextRequest) {
   const { error: upsertError } = await supabase
     .from("user_preferences")
     .upsert(
-      { user_id: user.id, categories, frequency, email, is_active: true },
+      { user_id: user.id, categories, frequency, email },
       { onConflict: "user_id" },
     );
 
@@ -63,9 +63,9 @@ export async function POST(request: NextRequest) {
     );
   }
 
-  const {} = await inngest.send({
+  await inngest.send({
     name: "newsletter.schedule",
-    data: { categories, email },
+    data: { categories, email, frequency },
   });
 
   return NextResponse.json({

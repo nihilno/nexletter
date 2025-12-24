@@ -46,8 +46,7 @@ function SelectForm() {
       }
 
       toast.success("Success!", {
-        description:
-          "Your newsletter preferences have been saved. You will start receiving them soon.",
+        description: "Your newsletter preferences have been saved.",
       });
       push("/dashboard");
     } catch (error) {

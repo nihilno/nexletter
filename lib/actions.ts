@@ -35,7 +35,7 @@ export async function changeStatus(is_active: boolean) {
       success: true,
     };
   } catch (error) {
-    console.error(error);
+    console.error("Failed to update user_preferences.is_active:", error);
     return {
       success: false,
       message: "Something went wrong on our side. Try again shortly.",

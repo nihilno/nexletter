@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { changeStatus } from "@/lib/actions";
 import { Loader2Icon, Pause, Play, UserCog } from "lucide-react";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { toast } from "sonner";
 import UpdatePreferencesBtn from "./update-preferences-btn";
 
@@ -12,15 +12,19 @@ function Actions({ isActive }: { isActive: boolean | undefined }) {
   const [active, setActive] = useState(isActive);
   const [isLoading, setIsLoading] = useState(false);
 
+  useEffect(() => {
+    setActive(isActive);
+  }, [isActive]);
+
   async function handleStatus() {
-    const revert = !active;
+    const newStatus = !active;
     setIsLoading(true);
 
     try {
-      setActive(revert);
-      const result = await changeStatus(revert);
+      setActive(newStatus);
+      const result = await changeStatus(newStatus);
       if (!result.success) {
-        setActive(!revert);
+        setActive(!newStatus);
         toast.error(result.message);
       }
     } catch (error) {
