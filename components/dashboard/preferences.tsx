@@ -2,7 +2,7 @@ import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { cn } from "@/lib/utils";
 import { Calendar, CheckCircle, Grid2X2, Send, Timer } from "lucide-react";
-import Empty from "./empty";
+import { Empty } from "./skeletons";
 
 function Preferences({
   preferences,

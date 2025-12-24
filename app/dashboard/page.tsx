@@ -1,7 +1,9 @@
 import Cards from "@/components/dashboard/cards";
 import Explanation from "@/components/dashboard/explanation";
+import { Loader } from "@/components/dashboard/skeletons";
 import Title from "@/components/dashboard/title";
 import { Metadata } from "next";
+import { Suspense } from "react";
 
 export const metadata: Metadata = {
   title: "Dashboard",
@@ -15,7 +17,9 @@ export default function DashboardPage() {
           Your <span className="text-primary">Newsletter</span>
           <br /> Dashboard
         </Title>
-        <Cards />
+        <Suspense fallback={<Loader />}>
+          <Cards />
+        </Suspense>
       </div>
       <Explanation />
     </section>
