@@ -20,4 +20,12 @@ declare global {
     children: React.ReactNode;
     subtitle: string;
   };
+
+  type UserPreferences = {
+    categories: string[];
+    frequency: string;
+    email: string;
+    is_active: boolean;
+    created_at: string;
+  };
 }

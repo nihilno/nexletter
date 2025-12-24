@@ -1,29 +1,20 @@
-"use client";
-
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Pause, Play, Sliders, UserCog } from "lucide-react";
-import { useRouter } from "next/navigation";
+import { Pause, Play, UserCog } from "lucide-react";
 import { Button } from "../ui/button";
+import UpdatePreferencesBtn from "./update-preferences-btn";
 
-function Actions() {
-  const isActive = true;
-  const { push } = useRouter();
-
+function Actions({ isActive }: { isActive: boolean | undefined }) {
   return (
     <Card className="rounded-t-none border-t-0">
       <CardHeader className="border-b border-dashed text-center text-xl font-bold sm:text-2xl">
         <CardTitle>Actions</CardTitle>
       </CardHeader>
-      <CardContent className="mt-2 space-y-6">
+      <CardContent className="mt-4 space-y-6">
+        <UpdatePreferencesBtn />
         <Button
           className="flex h-12 w-full items-center gap-2"
           variant={"outline"}
-          onClick={() => push("/preferences")}
         >
-          <Sliders className="size-5" />
-          <span>Update Preferences</span>
-        </Button>
-        <Button className="h-12 w-full items-center gap-2" variant={"outline"}>
           <UserCog className="size-5" />
           <span>Manage Subscription</span>
         </Button>

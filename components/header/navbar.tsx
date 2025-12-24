@@ -22,8 +22,8 @@ function Navbar() {
   return (
     <header className="border-primary bg-background/50 sticky top-0 z-50 border-b border-dashed px-4 backdrop-blur-3xl">
       <nav className="mx-auto flex h-22.5 max-w-5xl items-center justify-between gap-2">
-        <h2 className="text-2xl font-extralight">NexletterAI</h2>
-        <div className="flex items-center gap-2">
+        <h2 className="text-xl font-extralight md:text-2xl">NexletterAI</h2>
+        <div className="flex items-center gap-3">
           {navLinks.map(({ href, icon }) => (
             <Link
               key={href}

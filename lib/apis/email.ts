@@ -3,15 +3,15 @@ import emailjs from "@emailjs/nodejs";
 export async function sendEmail(
   email: string,
   categories: string,
-  article_count: number,
-  newsletterContent: string,
+  articles_count: number,
+  newsletter_content: string,
 ) {
   const templateParams = {
     email,
     categories,
-    article_count,
+    articles_count,
     current_date: new Date().toLocaleDateString("pl-PL"),
-    newsletterContent,
+    newsletter_content,
   };
 
   await emailjs.send(

@@ -2,63 +2,72 @@ import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { cn } from "@/lib/utils";
 import { Calendar, CheckCircle, Grid2X2, Send, Timer } from "lucide-react";
+import Empty from "./empty";
 
-function Preferences() {
-  const isActive = true;
+function Preferences({
+  preferences,
+}: {
+  preferences: UserPreferences | undefined;
+}) {
+  if (!preferences || preferences === undefined) return <Empty />;
+
+  const { is_active, categories, email, frequency, created_at } = preferences;
 
   return (
     <Card className="rounded-b-none border-b-0">
       <CardHeader className="border-b border-dashed text-center text-xl font-bold sm:text-2xl">
         <CardTitle>Current Preferences</CardTitle>
       </CardHeader>
-      <CardContent className="mt-2 space-y-6">
-        <div className="space-y-4">
-          <div className="flex items-center gap-2">
-            <Grid2X2 className="size-4.5" />
-            <h3 className="font-semibold">Categories</h3>
+      <CardContent className="mt-4 space-y-6">
+        {categories.length > 0 && (
+          <div className="space-y-4 border-b border-dashed pb-4">
+            <div className="flex shrink-0 items-center gap-2">
+              <Grid2X2 className="size-4.5" />
+              <h3 className="font-semibold">Categories</h3>
+            </div>
+            <div className="flex flex-wrap items-center gap-3 rounded-full capitalize">
+              {categories.map((category) => (
+                <Badge key={category}>{category}</Badge>
+              ))}
+            </div>
           </div>
-          <div className="flex items-center gap-3 rounded-full capitalize">
-            <Badge>technology</Badge>
-            <Badge>sports</Badge>
-            <Badge>politics</Badge>
-          </div>
-        </div>
+        )}
         <div className="flex items-center justify-between">
-          <div className="flex items-center gap-2">
+          <div className="flex shrink-0 items-center gap-2">
             <Timer className="size-4.5" />
             <h3 className="font-semibold">Frequency</h3>
           </div>
-          <p className="text-muted-foreground text-sm">Daily</p>
+          <p className="text-muted-foreground text-sm capitalize">
+            {frequency}
+          </p>
         </div>
-        <div className="line-clamp-1 flex items-center justify-between">
-          <div className="flex items-center gap-2">
+        <div className="line-clamp-1 flex items-center justify-between gap-1">
+          <div className="flex shrink-0 items-center gap-2">
             <Send className="size-4.5" />
             <h3 className="font-semibold">Email</h3>
           </div>
-          <p className="text-muted-foreground line-clamp-1 text-sm">
-            maciej.polowy1@gmail.com
-          </p>
+          <p className="text-muted-foreground line-clamp-1 text-sm">{email}</p>
         </div>
-        <div className="line-clamp-1 flex items-center justify-between">
-          <div className="flex items-center gap-2">
+        <div className="line-clamp-1 flex items-center justify-between gap-1">
+          <div className="flex shrink-0 items-center gap-2">
             <CheckCircle className="size-4.5" />
             <h3 className="font-semibold">Status</h3>
           </div>
           <Badge
             className={cn(
-              isActive ? "animate-pulse bg-green-800" : "bg-destructive",
+              is_active ? "animate-pulse bg-green-800" : "bg-destructive",
             )}
           >
-            {isActive ? "Active" : "Inactive"}
+            {is_active ? "Active" : "Inactive"}
           </Badge>
         </div>
-        <div className="line-clamp-1 flex items-center justify-between">
-          <div className="flex items-center gap-2">
+        <div className="line-clamp-1 flex items-center justify-between gap-1">
+          <div className="flex shrink-0 items-center gap-2">
             <Calendar className="size-4.5" />
             <h3 className="font-semibold">Created At</h3>
           </div>
           <p className="text-muted-foreground line-clamp-1 text-sm">
-            17/7/2025
+            {new Date(created_at).toLocaleDateString("pl-PL")}
           </p>
         </div>
       </CardContent>
