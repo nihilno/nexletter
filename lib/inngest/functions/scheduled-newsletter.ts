@@ -118,6 +118,7 @@ export default inngest.createFunction(
       await inngest.send({
         name: "newsletter.schedule",
         data: {
+          user_id: event.data.user_id,
           categories,
           email: event.data.email,
           frequency: event.data.frequency,

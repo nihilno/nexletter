@@ -65,9 +65,8 @@ export async function POST(request: NextRequest) {
 
   await inngest.send({
     name: "newsletter.schedule",
-    data: { categories, email, frequency },
+    data: { user_id: user.id, categories, email, frequency },
   });
-
   return NextResponse.json({
     success: true,
     message: "Preferences saved and added to table.",
