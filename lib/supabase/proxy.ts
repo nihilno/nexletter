@@ -29,16 +29,20 @@ export async function updateSession(request: NextRequest) {
     },
   );
 
+  await supabase.auth.getUser();
+
   const {
-    data: { user },
-  } = await supabase.auth.getUser();
+    data: { session },
+  } = await supabase.auth.getSession();
+  const isAuth = !!session;
+
   if (request.nextUrl.pathname === "/") {
     const url = request.nextUrl.clone();
     url.pathname = "/dashboard";
     return NextResponse.redirect(url);
   }
 
-  if (request.nextUrl.pathname === "/auth" && user) {
+  if (request.nextUrl.pathname === "/auth" && isAuth) {
     const url = request.nextUrl.clone();
     url.pathname = "/dashboard";
     return NextResponse.redirect(url);
@@ -47,15 +51,12 @@ export async function updateSession(request: NextRequest) {
   if (
     (request.nextUrl.pathname === "/dashboard" ||
       request.nextUrl.pathname === "/preferences") &&
-    !user
+    !isAuth
   ) {
     const url = request.nextUrl.clone();
     url.pathname = "/auth";
     return NextResponse.redirect(url);
   }
-
-  // refreshing the auth token
-  await supabase.auth.getUser();
 
   return supabaseResponse;
 }

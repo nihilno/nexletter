@@ -109,7 +109,9 @@ export function AuthForm() {
                 </div>
                 <span className="sr-only">Nexletter.</span>
               </Link>
-              <h2 className="text-xl font-bold">Welcome to Nexletter.</h2>
+              <h2 className="text-xl font-bold">
+                {isSignUp ? "Sign Up" : "Sign In"} to Nexletter.
+              </h2>
               <FieldDescription>
                 {isSignUp
                   ? "Already have an account?"

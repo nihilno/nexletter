@@ -2,7 +2,7 @@ import { createClient } from "@/lib/supabase/server";
 import { redirect } from "next/navigation";
 import Actions from "./actions";
 import Preferences from "./preferences";
-import { Empty } from "./skeletons";
+import { Empty, SetUp } from "./skeletons";
 
 export default async function Cards() {
   const supabase = await createClient();
@@ -19,8 +19,12 @@ export default async function Cards() {
     .select("*")
     .maybeSingle();
 
-  if (error || !preferences) {
+  if (error) {
     return <Empty />;
+  }
+
+  if (!preferences) {
+    return <SetUp />;
   }
 
   return (
