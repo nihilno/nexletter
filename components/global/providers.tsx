@@ -17,8 +17,7 @@ function Providers({ children }: { children: React.ReactNode }) {
       >
         <AuthProvider>
           <PreferencesProvider>
-            <LenisProvider />
-            {children}
+            <LenisProvider>{children}</LenisProvider>
           </PreferencesProvider>
         </AuthProvider>
       </ThemeProvider>

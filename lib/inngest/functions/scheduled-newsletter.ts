@@ -20,7 +20,6 @@ export default inngest.createFunction(
   // preparing categories based on user choices
   async ({ event, step }) => {
     const isActive = await step.run("check-status", async () => {
-      // const supabase = await createClient();
       const supabase = createClient(
         process.env.NEXT_PUBLIC_SUPABASE_URL!,
         process.env.SUPABASE_SERVICE_ROLE_KEY!,
