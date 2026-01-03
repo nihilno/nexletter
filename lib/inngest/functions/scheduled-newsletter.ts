@@ -2,7 +2,7 @@ import { sendEmail } from "@/lib/apis/email";
 import { fetchArticles } from "@/lib/apis/news";
 import { inngest } from "@/lib/inngest/client";
 import { openRouter } from "@/lib/open-router";
-import { createClient } from "@/lib/supabase/server";
+import { createClient } from "@supabase/supabase-js";
 import { marked } from "marked";
 
 export default inngest.createFunction(
@@ -20,7 +20,11 @@ export default inngest.createFunction(
   // preparing categories based on user choices
   async ({ event, step }) => {
     const isActive = await step.run("check-status", async () => {
-      const supabase = await createClient();
+      // const supabase = await createClient();
+      const supabase = createClient(
+        process.env.NEXT_PUBLIC_SUPABASE_URL!,
+        process.env.SUPABASE_SERVICE_ROLE_KEY!,
+      );
       const { data, error } = await supabase
         .from("user_preferences")
         .select("is_active")

@@ -3,6 +3,7 @@
 import { Toaster } from "@/components/ui/sonner";
 import { AuthProvider } from "@/contexts/auth-context";
 import { PreferencesProvider } from "@/contexts/preferences-context";
+import { LenisProvider } from "@/lib/lenis";
 import { ThemeProvider as NextThemesProvider } from "next-themes";
 import * as React from "react";
 
@@ -15,7 +16,10 @@ function Providers({ children }: { children: React.ReactNode }) {
         disableTransitionOnChange
       >
         <AuthProvider>
-          <PreferencesProvider>{children}</PreferencesProvider>
+          <PreferencesProvider>
+            <LenisProvider />
+            {children}
+          </PreferencesProvider>
         </AuthProvider>
       </ThemeProvider>
       <Toaster />

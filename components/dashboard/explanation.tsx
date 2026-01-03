@@ -24,8 +24,9 @@ function Explanation() {
           src="/bg.webp"
           alt="Background"
           fill
-          className="-z-10 object-contain object-center lg:object-cover lg:object-bottom"
+          className="-z-10 object-contain object-center opacity-40 lg:object-cover lg:object-bottom"
           quality={50}
+          sizes="100vw"
         />
       </div>
     </section>

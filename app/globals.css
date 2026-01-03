@@ -1,7 +1,6 @@
 @import "tailwindcss";
 @import "tw-animate-css";
-
-@custom-variant dark (&:is(.dark *));
+@import "lenis/dist/lenis.css";
 
 @theme inline {
   --color-background: var(--background);
@@ -130,7 +129,6 @@
   }
 
   html {
-    scroll-behavior: smooth;
     scrollbar-gutter: both-edges stable;
   }
 

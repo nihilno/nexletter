@@ -71,7 +71,8 @@ export function AuthForm() {
         });
         if (error) {
           toast.error("Sign in failed.", {
-            description: "Incorrect email or password. Please try again.",
+            description:
+              "Incorrect email or password. Please try again, or confirm your email.",
           });
           return;
         }
@@ -200,13 +201,13 @@ export function AuthForm() {
         </form>
         <FieldDescription className="mt-6! px-6 text-center">
           By clicking continue, you agree to our{" "}
-          <a target="_blank" rel="noopener noreferrer" href="#">
+          <span className="hover:text-primary underline transition-colors">
             Terms of Service
-          </a>{" "}
+          </span>{" "}
           and{" "}
-          <a target="_blank" rel="noopener noreferrer" href="#">
+          <span className="hover:text-primary underline transition-colors">
             Privacy Policy
-          </a>
+          </span>
           .
         </FieldDescription>
       </Form>
