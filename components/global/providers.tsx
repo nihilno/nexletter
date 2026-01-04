@@ -13,7 +13,8 @@ function Providers({ children }: { children: React.ReactNode }) {
       <ThemeProvider
         attribute="class"
         disableTransitionOnChange
-        defaultTheme="system"
+        defaultTheme="dark"
+        forcedTheme="dark"
       >
         <AuthProvider>
           <PreferencesProvider>
