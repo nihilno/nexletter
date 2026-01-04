@@ -213,7 +213,7 @@ export function AuthForm() {
       </Form>
 
       {isSubmitting && (
-        <div className="absolute inset-0 z-50 flex items-center justify-center bg-white/80 dark:bg-black/80">
+        <div className="absolute inset-0 z-50 flex items-center justify-center">
           <div className="flex flex-col items-center gap-4">
             <Loader2Icon className="text-primary size-10 animate-spin" />
             <p className="text-sm font-medium">
