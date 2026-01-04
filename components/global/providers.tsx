@@ -12,8 +12,8 @@ function Providers({ children }: { children: React.ReactNode }) {
     <>
       <ThemeProvider
         attribute="class"
-        defaultTheme="dark"
         disableTransitionOnChange
+        defaultTheme="system"
       >
         <AuthProvider>
           <PreferencesProvider>
